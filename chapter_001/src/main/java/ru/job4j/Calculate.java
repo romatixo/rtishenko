@@ -11,7 +11,7 @@ public class Calculate {
 
 /**
 *Основной метод мейn для вывода текста на консоль
-*@param args 
+*@param args аргументы командной строки
 */
    public static void main (String[] args) {
     	 System.out.println("Hello World!!!");
