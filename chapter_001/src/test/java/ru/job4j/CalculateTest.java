@@ -22,7 +22,7 @@ public void whenAddOneToOneThenTwo() {
 	ByteArrayOutputStream out = new ByteArrayOutputStream();
 	System.setOut(new PrintStream(out));
 	Calculate.main(null);
-	assertThat( out.toString(), is(String.format("Hello World!!!%s",
+	assertThat(out.toString(), is(String.format("Hello World!!!%s",
 		System.getProperty("line.separator"))));
 										}
 							}
