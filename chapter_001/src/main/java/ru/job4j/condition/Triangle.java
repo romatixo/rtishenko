@@ -1,4 +1,5 @@
 package ru.job4j.condition;
+import static java.lang.Math.abs;
 /**
 * Triangle класс точки .
 * @author romatihsenko
@@ -35,6 +36,6 @@ public class Triangle {
 	* @return - результат
 	*/
 	public double area() {
-		return ((a.getX() - c.getX()) * (b.getY() - c.getY()) - (b.getX() - c.getX()) * (a.getY() - c.getY())) / 2 > 0 ? ((a.getX() - c.getX()) * (b.getY() - c.getY()) - (b.getX() - c.getX()) * (a.getY() - c.getY())) / 2 : 0.0;
+		return abs(((a.getX() - c.getX()) * (b.getY() - c.getY()) - (b.getX() - c.getX()) * (a.getY() - c.getY())) / 2);
 	}
 }

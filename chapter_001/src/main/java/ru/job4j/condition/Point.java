@@ -44,6 +44,6 @@ public class Point {
   * @return - возвращает true если точка находиться на функции и наоборот
   */
   public boolean is(int a, int b) {
-    return getY() == a * getX() + b ? true : false;
+    return this.y == a * this.x + b;
   }
 }
