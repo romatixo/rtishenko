@@ -13,8 +13,16 @@ public class Max {
     * @return - возвращает максимум из двух чисел
     */
     public int max(int first, int second) {
-    	int max;
-    	max = first > second ? first : second;
-    	return max;
+    	return first > second ? first : second;
+    }
+    /**
+    * max - метод выбора максимума.
+    * @param first - первый аргумент
+    * @param second - второй аргумент
+    * @param third - третий арг
+    * @return - возвращает максимум из трех чисел
+    */
+    public int max(int first, int second, int third) {
+       return max(max(first, second), third);
     }
 }

@@ -20,4 +20,14 @@ public class MaxTest {
         int expected = 2;
         assertThat(result, is(expected));
     }
+/**
+* Тест выбора максимума трех чисел.
+*/
+ @Test
+    public void whenAddOnePlusOnePlusOneThenTwo() {
+       Max max = new Max();
+        int  result = max.max(1, 2, 3);
+        int expected = 3;
+        assertThat(result, is(expected));
+    }
 }
