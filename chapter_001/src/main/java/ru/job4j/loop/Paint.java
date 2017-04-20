@@ -22,7 +22,7 @@ public class Paint {
 				}
 			}
 			if (i != h - 1) {
-				pir = pir + System.getProperty("line.separator");
+				pir = pir + String.format("%s", System.getProperty("line.separator"));
 			}
 		}
 		return pir;

@@ -17,7 +17,7 @@ public class PaintTest {
     public void whenThreeThenThinks() {
         Paint paint = new Paint();
         String result = paint.piramid(3);
-        String expected = "  ^  \r\n ^^^ \r\n^^^^^";
+        String expected = String.format("  ^  %s ^^^ %s^^^^^", System.getProperty("line.separator"), System.getProperty("line.separator"));
         assertThat(result, is(expected));
     }
 }
