@@ -19,7 +19,7 @@ public class ArrayDuplicateTest  {
        ArrayDuplicate dubl = new ArrayDuplicate();
        String[] array = new String[]{"A", "A", "A", "B", "B", "C"};
        String[] result = dubl.remove(array);
-       String[] expected = new String[]{"A", "C", "B"};
+       String[] expected = new String[]{"A", "B", "C"};
        assertThat(result, is(expected));
     }
 }

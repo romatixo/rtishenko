@@ -16,12 +16,13 @@ public class  ArrayDuplicate {
 		int n = array.length;
 		int score = 0;
 		for (int i = 0; i < n - score; i++) {
-			for (int j = 0; j < n - j; j++) {
+			for (int j = 0; j < n - score; j++) {
 				if (array[i].equals(array[j]) && j != i) {
-					// поменять j с концом - j
-					String temp = array[j];
-					array[j] = array[n - j];
-					array[n - j] = array[j];
+					for (int f = j; f < n - 1; f++) {
+					   String temp = array[f];
+						array[f] = array[f + 1];
+						array[f + 1] = temp;
+					}
 					score++;
 				}
 			}
