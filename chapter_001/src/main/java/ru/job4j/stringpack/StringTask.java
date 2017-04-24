@@ -21,12 +21,15 @@ public class  StringTask {
 		int count = 0;
 		for (int i = 0; i <= lengthOrigin - lengthSub; i++) {
 			if (subArr[0] == originArr[i]) {
-				int j = 0;
-				while (j < lengthSub && subArr[j] == originArr[i]) {
-					j++;
-					i++;
+				count = 0;
+				for (int j = 0; j < lengthSub; j++) {
+					if (subArr[j] == originArr[i + j]) {
+						count++;
+					} else {
+						break;
+					}
 				}
-				if (j == lengthSub) {
+				if (count == lengthSub) {
 					flag = true;
 				}
 			}
