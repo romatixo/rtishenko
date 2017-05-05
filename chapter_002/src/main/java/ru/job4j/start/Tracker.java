@@ -48,7 +48,12 @@ public class Tracker {
      * @param item - запись
      */
     public void delete (Item item) {
-        // тк массив , то нельзя удалять записи
+        for (int i = 0; i < this.items.length; i++) {
+            if (this.items[i].equals(item)) {
+                System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i);
+              break;
+            }
+        }
     }
     /**
      * findAll - показ всех записей
@@ -75,8 +80,10 @@ public class Tracker {
         return result;
     }
     /**
-     * uodate - не понял , что именно редактировать в записи
+     * update - замена текущей ячейки на тот объект что пришел в методе.
      * @param item - запись
      */
-    public void update(Item item) {}
+    public void update(Item item) {
+        this.items[position] = item;
+    }
 }
