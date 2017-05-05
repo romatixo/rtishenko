@@ -16,26 +16,13 @@ public class Teacher extends Profession {
     public Teacher(String name, int age, byte rang, int salary) {
         super(name, age, rang, salary);
     }
-
-    /**
-     * количество студентов учителя
-     */
-    private int numberofstudents;
-
-    /**
-     * Геттер
-     * @return количество студентов
-     */
-    public int getNumberofstudents() {
-        return numberofstudents;
-    }
-
-    /**
+     /**
      * teach - метод .
-     * @param numberofstudents - количество студентов
+     * @param student - студент
      * @return фразу
      */
-    public String teach (int numberofstudents) {
-        return "Teacher " + getName() + " teaches " + numberofstudents + "students";
+    public String teach (Student student) {
+        student.setMind();
+        return "Teacher " + getName() + " teaches " + student.getName();
     }
 }

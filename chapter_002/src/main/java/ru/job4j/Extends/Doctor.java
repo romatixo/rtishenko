@@ -19,19 +19,20 @@ public class Doctor extends Profession{
 
     /**
      * heal - метод для лечения доктором пациента
-     * @param namePacient - имя пациента
+     * @param patient - пациент
      * @return фраза
      */
-    public String heal(String namePacient) {
-        return "Doctor " + getName() + " heal a " + namePacient;
+    public String heal(Patient patient) {
+        return "Doctor " + getName() + " heal a " + patient.getName();
     }
 
     /**
      * operationdo - метод проверки результата
-     * @param namePacient - имя пациента
+     * @param patient - имя пациента
      * @return получиться операция или нет
      */
-    public boolean operationdo (String namePacient) {
+    public boolean operationdo (Patient patient) {
+        patient.setDisease();
         return true;
     }
 }

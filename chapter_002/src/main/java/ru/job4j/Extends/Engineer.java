@@ -33,10 +33,10 @@ public class Engineer  extends Profession{
 
     /**
      * workOnMachine - метод показывающий сколько часов работал инженер
-     * @param numbhours - Количество часов за работой
+     * @param machine - машина
      * @return фраза
      */
-    public String workOnMachine (int numbhours) {
-        return getName() + "worked by machine " + numbhours + "hours";
+    public String workOnMachine (Machine machine, int numbhours) {
+        return getName() + "worked by"+ machine  + numbhours + "hours";
     }
 }
