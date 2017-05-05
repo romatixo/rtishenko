@@ -18,13 +18,70 @@ public class TrackerTest {
     @Test
     public void whenOneThenTwo() {
         Tracker expected = new Tracker();
-        Tracker result = new Tracker();
-
-        Item itemOne = new Item("one","desk",1);
-        itemOne.setId(itemOne.id);
+        Item itemOne = new Item("one", "desk", 1);
         expected.add(itemOne);
-        result.items[0] = itemOne;
-        result.position++;
-        assertThat(result, is(expected));
+
+        assertThat(itemOne, is(expected.items[0]));
+    }
+    /**
+     * Тест проверки метода findById.
+     */
+    @Test
+    public void whenOneThenThree() {
+        Tracker expected = new Tracker();
+        Item itemOne = new Item("one", "desk", 1);
+        expected.add(itemOne);
+        Item res = expected.findById(itemOne.getId());
+        assertThat(itemOne, is(res));
+    }
+    /**
+     * Тест проверки метода delete.
+     */
+    @Test
+    public void whenOneThenFour() {
+        Tracker expected = new Tracker();
+        Item itemOne = new Item("one", "desk", 1);
+        Item itemTwo = new Item("one1", "desk1", 2);
+        expected.add(itemOne);
+        expected.add(itemTwo);
+        expected.delete(itemTwo);
+
+        assertThat(null, is(expected.findById(itemTwo.getId())));
+    }
+    /**
+     * Тест проверки метода findAll.
+     */
+    @Test
+    public void whenOneThenFive() {
+        Tracker expected = new Tracker();
+        Item itemOne = new Item("one", "desk", 1);
+        expected.add(itemOne);
+        assertThat(itemOne, is(expected.findAll()[0]));
+    }
+    /**
+     * Тест проверки метода findByName.
+     */
+    @Test
+    public void whenOneThenSix() {
+        Tracker expected = new Tracker();
+        Item itemOne = new Item("one", "desk", 1);
+        expected.add(itemOne);
+        Item[] items = new Item[1];
+        items[0] = itemOne;
+        assertThat(items, is(expected.findByName(itemOne.getName())));
+    }
+    /**
+     * Тест проверки метода update.
+     */
+    @Test
+    public void whenOneThenSeven(){
+        Tracker expected = new Tracker();
+        Tracker result = new Tracker();
+        Item itemOne = new Item("one", "desk", 1);
+        expected.add(itemOne);
+        itemOne.setName("one1");
+        result.add(itemOne);
+        expected.update(itemOne);
+        assertThat(itemOne, is(expected.items[0]));
     }
 }

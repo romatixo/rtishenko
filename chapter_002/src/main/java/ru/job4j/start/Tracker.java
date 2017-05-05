@@ -13,7 +13,7 @@ public class Tracker {
     /**
      * items - массив заявок
      */
-    public Item[] items = new Item[100];
+    Item[] items = new Item[100];
 
     /**
      * Геттер
@@ -26,16 +26,16 @@ public class Tracker {
     /**
      * position - позиция заявки
      */
-    public int position = 0;
+    private int position = 0;
     /**
      * RN - уникальный id
      */
-    public static final Random RN = new Random();
+    private static final Random RN = new Random();
     /**
      * add - метод добавления заявки
      * @param item - заявка
      */
-    public void add(Item item) {
+    void add(Item item) {
       item.setId(String.valueOf(RN.nextInt()));
       this.items[position++] = item;
     }
@@ -44,7 +44,7 @@ public class Tracker {
      * @param id - id записи
      * @return - искомая запись
      */
-    protected  Item findById(String id) {
+    Item findById(String id) {
         Item result = null;
         for (Item item : items) {
             if (item != null && item.getId().equals(id)) {
@@ -58,10 +58,12 @@ public class Tracker {
      * delete - метод удаления записи
      * @param item - запись
      */
-    public void delete (Item item) {
+    void delete(Item item) {
         for (int i = 0; i < this.items.length; i++) {
             if (this.items[i].equals(item)) {
-                System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i);
+                System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i - 1);
+                this.items[position] = null;
+                position-=1;
               break;
             }
         }
@@ -70,7 +72,7 @@ public class Tracker {
      * findAll - показ всех записей
      * @return - показ
      */
-    public Item[] findAll() {
+    Item[] findAll() {
         return Arrays.copyOf(items, position);
     }
     /**
@@ -78,12 +80,12 @@ public class Tracker {
      * @param key - искомое имя
      * @return - записи
      */
-    public Item[] findByName(String key) {
-        Item[] result = new Item[100];
-        int i = 0;
-        for (Item item : this.items) {
-            if (item.getName().equals(key)) {
-                result[i++] = item;
+    Item[] findByName(String key) {
+        Item[] result = new Item[1];
+        int f = 0;
+        for (int i = 0;i < 100 ; i++) {
+            if (this.items[i] != null && this.items[i].getName().equals(key)) {
+                result[f++] = this.items[i];
             }
         }
         return result;
@@ -92,7 +94,12 @@ public class Tracker {
      * update - замена текущей ячейки на тот объект что пришел в методе.
      * @param item - запись
      */
-    public void update(Item item) {
-        this.items[position] = item;
+    void update(Item item) {
+        for (int i = 0; i<100; i++) {
+            if (this.items[i].getId().equals(item.getId())) {
+               items[i] = item;
+               break;
+            }
+        }
     }
 }
