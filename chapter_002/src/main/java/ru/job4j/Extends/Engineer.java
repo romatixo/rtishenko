@@ -37,6 +37,6 @@ public class Engineer  extends Profession{
      * @return фраза
      */
     public String workOnMachine (Machine machine, int numbhours) {
-        return getName() + "worked by"+ machine  + numbhours + "hours";
+        return String.format("%s worked by &s &d hours",getName(),machine,numbhours);
     }
 }

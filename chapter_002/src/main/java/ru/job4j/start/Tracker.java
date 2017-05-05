@@ -1,5 +1,7 @@
 package ru.job4j.start;
 import ru.job4j.models.Item;
+
+import java.util.Arrays;
 import java.util.Random;
 /**
  * Tracker класс обертки массива записей.
@@ -11,15 +13,24 @@ public class Tracker {
     /**
      * items - массив заявок
      */
-    private Item[] items = new Item[100];
+    public Item[] items = new Item[100];
+
+    /**
+     * Геттер
+     * @return position
+     */
+    public int getPosition() {
+        return position;
+    }
+
     /**
      * position - позиция заявки
      */
-    private int position = 0;
+    public int position = 0;
     /**
      * RN - уникальный id
      */
-    private static final Random RN = new Random();
+    public static final Random RN = new Random();
     /**
      * add - метод добавления заявки
      * @param item - заявка
@@ -60,9 +71,7 @@ public class Tracker {
      * @return - показ
      */
     public Item[] findAll() {
-        Item[] result = new Item[10];
-        System.arraycopy(this.items, 0, result, 0, 100);
-        return result;
+        return Arrays.copyOf(items, position);
     }
     /**
      * findByName - поиск записи по имени

@@ -21,7 +21,7 @@ public class Item {
     /**
      * id - уникальный ключ
      */
-    private String id;
+    public String id;
     /**
      * Конструктор
      * @param name - имя

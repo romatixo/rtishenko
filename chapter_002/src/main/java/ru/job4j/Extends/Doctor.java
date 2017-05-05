@@ -23,7 +23,7 @@ public class Doctor extends Profession{
      * @return фраза
      */
     public String heal(Patient patient) {
-        return "Doctor " + getName() + " heal a " + patient.getName();
+        return String.format("Doctor %s heal a %s" ,getName(),patient.getName());
     }
 
     /**

@@ -23,6 +23,6 @@ public class Teacher extends Profession {
      */
     public String teach (Student student) {
         student.setMind();
-        return "Teacher " + getName() + " teaches " + student.getName();
+        return String.format("Teacher &s teaches %s",getName(),student.getName());
     }
 }
