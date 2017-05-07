@@ -81,14 +81,14 @@ public class Tracker {
      * @return - записи
      */
     Item[] findByName(String key) {
-        int l = 0;
+        int number = 0;
         int f = 0;
         for (Item item : items) {
             if (item != null && item.getName().equals(key)) {
-               l++;
+               number++;
             }
         }
-        Item[] result = new Item[l];
+        Item[] result = new Item[number];
         for (Item item : items) {
             if (item != null && item.getName().equals(key)) {
                 result[f++] = item;
