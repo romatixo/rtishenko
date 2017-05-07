@@ -81,11 +81,11 @@ public class Tracker {
      * @return - записи
      */
     Item[] findByName(String key) {
-        Item[] result = new Item[1];
+        Item[] result = new Item[100];
         int f = 0;
-        for (int i = 0;i < 100 ; i++) {
-            if (this.items[i] != null && this.items[i].getName().equals(key)) {
-                result[f++] = this.items[i];
+        for (Item item : items) {
+            if (item != null && item.getName().equals(key)) {
+                result[f++] = item;
             }
         }
         return result;
@@ -95,7 +95,7 @@ public class Tracker {
      * @param item - запись
      */
     void update(Item item) {
-        for (int i = 0; i<100; i++) {
+        for (int i = 0; i<items.length; i++) {
             if (this.items[i].getId().equals(item.getId())) {
                items[i] = item;
                break;
