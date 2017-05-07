@@ -93,4 +93,9 @@ public class Item {
     public void setCreate(long create) {
         this.create = create;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Заявка : %s\r\nОписание : %s\r\nId : %s\r\nДата создания : %s",this.name,this.description,this.id,this.create);
+    }
 }

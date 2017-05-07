@@ -9,33 +9,45 @@ import ru.job4j.models.Item;
  * @version 1
  */
 public class StartUi {
+    private Input input;
+    private Tracker tracker;
+    public StartUi(ConsoleInput input, Tracker tracker) {
+        this.input = input;
+        this.tracker = tracker;
+    }
+
+    private static final int ADD = 0;
+    private static final int FINDALL = 1;
+    private static final int UPDATE = 2;
+    private static final int DELETE = 3;
+    private static final int FINDID = 4;
+    private static final int FINDNAME = 5;
+    private static final int EXIT = 6;
 
     public void init() {
 
         Tracker tracker = new Tracker();
         ConsoleInput consoleInput = new ConsoleInput();
-        while (true) {
+        boolean flag = false;
+        while (!flag) {
             viewMenu();
-            String answer = consoleInput.ask("Select:");
-            if (answer.equals("0")) {
+            int answer = Integer.valueOf(consoleInput.ask("Select:"));
+            if (answer==ADD) {
                 Item item = new Item(consoleInput.ask("Введите  имя пользователя")
                         ,consoleInput.ask("Теперь введите описание заявки"), System.currentTimeMillis());
                 tracker.add(item);
 
             }
-            else if (answer.equals("1")) {
+            else if (answer==FINDALL) {
                 int i = 1;
                 for (Item item1 : tracker.findAll()) {
                     System.out.println("  Заявка № "+ i);
-                    System.out.println("Название : " + item1.getName());
-                    System.out.println("Описание : " + item1.getDescription());
-                    System.out.println("Id : " + item1.getId());
-                    System.out.println("Дата создания : " + item1.getCreate());
+                    System.out.println(item1.toString());
                     i++;
                 }
 
             }
-            else if (answer.equals("2")) {
+            else if (answer==UPDATE) {
                 String id = consoleInput.ask("Введите id записи , которую вы хотите изменить");
                 Item item = tracker.findById(id);
                 if (item != null) {
@@ -46,7 +58,7 @@ public class StartUi {
                     System.out.println("Такой записи не существует");
 
             }
-             else if (answer.equals("3")) {
+             else if (answer==DELETE) {
                 String id = consoleInput.ask("Введите id записи , которую вы хотите удалить");
                 Item item = tracker.findById(id);
                 if (item != null) {
@@ -54,29 +66,27 @@ public class StartUi {
                 } else
                     System.out.println("Такой записи не существует");
             }
-            else if (answer.equals("4")) {
+            else if (answer==FINDID) {
                 String id = consoleInput.ask("Введите id записи , которую вы хотите найти");
                 Item item = tracker.findById(id);
                 if (item != null) {
-                    System.out.println("Заявка : " + item.getName());
-                    System.out.println("Описание : " + item.getDescription());
+                    System.out.println(item.toString());
                 } else
                     System.out.println("Такой записи не существует");
             }
-             else if (answer.equals("5")) {
+             else if (answer==FINDNAME) {
                 String name = consoleInput.ask("Введите name записи , которую вы хотите найти");
                 int l = 0;
                 Item[] items = tracker.findByName(name);
                 if (items != null) {
                     for (int i = 0; i < items.length; i++) {
-                        System.out.println("Заявка : " + items[i].getName());
-                        System.out.println("Описание : " + items[i].getDescription());
+                        System.out.println(items[i].toString());
                     }
                 } else
                     System.out.println("Таких записей не существует");
             }
-            else if (answer.equals("6")) {
-                break;
+            else if (answer==EXIT) {
+               flag = true;
             }
         }
     }
@@ -90,6 +100,6 @@ public class StartUi {
     }
 
     public static void main(String[] args) {
-        new StartUi().init();
+        new StartUi(new ConsoleInput(),new Tracker()).init();
     }
 }
