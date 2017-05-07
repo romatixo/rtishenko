@@ -86,7 +86,6 @@ public class Tracker {
         for (Item item : items) {
             if (item != null && item.getName().equals(key)) {
                 result[f++] = item;
-                f++;
             }
         }
         return Arrays.copyOf(result,f);
