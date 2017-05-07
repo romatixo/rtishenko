@@ -81,20 +81,15 @@ public class Tracker {
      * @return - записи
      */
     Item[] findByName(String key) {
-        int number = 0;
         int f = 0;
-        for (Item item : items) {
-            if (item != null && item.getName().equals(key)) {
-               number++;
-            }
-        }
-        Item[] result = new Item[number];
+        Item[] result = new Item[position];
         for (Item item : items) {
             if (item != null && item.getName().equals(key)) {
                 result[f++] = item;
+                f++;
             }
         }
-        return result;
+        return Arrays.copyOf(result,f);
     }
     /**
      * update - замена текущей ячейки на тот объект что пришел в методе.
