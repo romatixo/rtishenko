@@ -6,26 +6,36 @@ package ru.job4j.Extends;
  * @version 1
  */
 public class Patient {
+    /**
+     * name - имя.
+     */
     private String name;
+    /**
+     * disease - состояние.
+     */
     private String disease;
 
+    /**
+     * Конструктор.
+     * @param name - имя
+     * @param disease - состояние
+     */
     public Patient(String name, String disease) {
         this.name = name;
         this.disease = disease;
     }
 
+    /**
+     * getName - получение имени.
+     * @return name
+     */
     String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDisease() {
-        return disease;
-    }
-
+    /**
+     * Установить состояние.
+     */
     void setDisease() {
         this.disease = "healthy";
     }

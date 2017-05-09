@@ -7,7 +7,7 @@ package ru.job4j.Extends;
  */
 public class Teacher extends Profession {
     /**
-     * Конструктор
+     * Конструктор.
      * @param name - имя
      * @param age - возраст
      * @param rang - ранг
@@ -17,12 +17,11 @@ public class Teacher extends Profession {
         super(name, age, rang, salary);
     }
      /**
-     * teach - метод .
+     * teach - метод.
      * @param student - студент
      * @return фразу
      */
-    public String teach (Student student) {
-        student.setMind();
-        return String.format("Teacher &s teaches %s",getName(),student.getName());
+    public String teach(Student student) {
+        return String.format("Teacher &s teaches %s", getName(), student.getName());
     }
 }

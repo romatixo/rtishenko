@@ -7,41 +7,41 @@ package ru.job4j.models;
  */
 public class Item {
     /**
-     * name - переменная имени юзера
+     * name - переменная имени юзера.
      */
     private String name;
     /**
-     * description - описание
+     * description - описание.
      */
     private String description;
     /**
-     * create- время создания заявки
+     * create- время создания заявки.
      */
     private long create;
     /**
-     * id - уникальный ключ
+     * id - уникальный ключ.
      */
-    public String id;
+    private String id;
     /**
-     * Конструктор
+     * Конструктор.
      * @param name - имя
      * @param description - описание
-     * @param create - дата создания
+     * @param id - дата создания
      */
-    public Item(String name, String description, long create) {
+    public Item(String name, String description, String id) {
         this.name = name;
         this.description = description;
-        this.create = create;
+        this.id = id;
     }
     /**
-     * Геттер
+     * Геттер.
      * @return id
      */
     public String getId() {
         return id;
     }
-    /**
-     * Сеттер
+     /**
+     * Сеттер.
      * @param id - id
      */
     public void setId(String id) {
@@ -49,21 +49,21 @@ public class Item {
     }
 
     /**
-     * Геттер
+     * Геттер.
      * @return name
      */
     public String getName() {
         return name;
     }
     /**
-     * Сеттер
+     * Сеттер.
      * @param name - имя
      */
     public void setName(String name) {
         this.name = name;
     }
     /**
-     * Геттер
+     * Геттер.
      * @return desc
      */
     public String getDescription() {
@@ -71,7 +71,7 @@ public class Item {
     }
 
     /**
-     * Сеттер
+     * Сеттер.
      * @param description - описание
      */
     public void setDescription(String description) {
@@ -79,7 +79,7 @@ public class Item {
     }
 
     /**
-     * Геттер
+     * Геттер.
      * @return create
      */
     public long getCreate() {
@@ -87,15 +87,17 @@ public class Item {
     }
 
     /**
-     * Сеттер
+     * Сеттер.
      * @param create - cr
      */
     public void setCreate(long create) {
         this.create = create;
     }
-
+     /*
+     * toString() - переназначение метода.
+     */
     @Override
     public String toString() {
-        return String.format("Заявка : %s\r\nОписание : %s\r\nId : %s\r\nДата создания : %s",this.name,this.description,this.id,this.create);
+        return String.format("Заявка : %s\r\nОписание : %s\r\nId : %s\r\nДата создания : %s", this.name, this.description, this.id, this.create);
     }
 }

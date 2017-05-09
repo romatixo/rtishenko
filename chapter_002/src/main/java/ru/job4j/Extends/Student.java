@@ -6,37 +6,24 @@ package ru.job4j.Extends;
  * @version 1
  */
 public class Student {
-    public Student(String name, int grade, int mind) {
+    /**
+     * name - имя.
+     */
+    private String name;
+
+    /**
+     * Конструктор.
+     * @param name - имя
+     */
+    public Student(String name) {
         this.name = name;
-        this.grade = grade;
-        this.mind = mind;
     }
 
-    private String name;
-    private int grade;
-    private int mind = 0;
-
+    /**
+     * Геттер.
+     * @return name
+     */
     String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getGrade() {
-        return grade;
-    }
-
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
-
-    public int getMind() {
-        return mind;
-    }
-
-    void setMind() {
-        this.mind = 1000;
     }
 }

@@ -11,12 +11,18 @@ import java.util.Random;
  */
 public class Tracker {
     /**
-     * items - массив заявок
+     * Геттер.
+     * @return items
      */
-    Item[] items = new Item[100];
-
+    public Item[] getItems() {
+        return items;
+    }
     /**
-     * Геттер
+     * items - массив заявок.
+     */
+    private Item[] items = new Item[100];
+    /**
+     * Геттер.
      * @return position
      */
     public int getPosition() {
@@ -24,23 +30,23 @@ public class Tracker {
     }
 
     /**
-     * position - позиция заявки
+     * position - позиция заявки.
      */
     private int position = 0;
     /**
-     * RN - уникальный id
+     * RN - уникальный id.
      */
     private static final Random RN = new Random();
     /**
-     * add - метод добавления заявки
+     * add - метод добавления заявки.
      * @param item - заявка
      */
     void add(Item item) {
-      item.setId(String.valueOf(RN.nextInt()));
+      item.setCreate(System.currentTimeMillis());
       this.items[position++] = item;
     }
     /**
-     * findById - метод поиска записи по id
+     * findById - метод поиска записи по id.
      * @param id - id записи
      * @return - искомая запись
      */
@@ -55,7 +61,7 @@ public class Tracker {
         return result;
     }
     /**
-     * delete - метод удаления записи
+     * delete - метод удаления записи.
      * @param item - запись
      */
     void delete(Item item) {
@@ -63,20 +69,20 @@ public class Tracker {
             if (this.items[i].equals(item)) {
                 System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i - 1);
                 this.items[position] = null;
-                position-=1;
+                position -= 1;
               break;
             }
         }
     }
     /**
-     * findAll - показ всех записей
+     * findAll - показ всех записей.
      * @return - показ
      */
     Item[] findAll() {
         return Arrays.copyOf(items, position);
     }
     /**
-     * findByName - поиск записи по имени
+     * findByName - поиск записи по имени.
      * @param key - искомое имя
      * @return - записи
      */
@@ -88,14 +94,14 @@ public class Tracker {
                 result[f++] = item;
             }
         }
-        return Arrays.copyOf(result,f);
+        return Arrays.copyOf(result, f);
     }
     /**
      * update - замена текущей ячейки на тот объект что пришел в методе.
      * @param item - запись
      */
     void update(Item item) {
-        for (int i = 0; i<items.length; i++) {
+        for (int i = 0; i < items.length; i++) {
             if (this.items[i].getId().equals(item.getId())) {
                items[i] = item;
                break;

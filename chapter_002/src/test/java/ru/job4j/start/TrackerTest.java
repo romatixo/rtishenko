@@ -18,10 +18,10 @@ public class TrackerTest {
     @Test
     public void whenOneThenTwo() {
         Tracker expected = new Tracker();
-        Item itemOne = new Item("one", "desk", 1);
+        Item itemOne = new Item("one", "desk", "1");
         expected.add(itemOne);
 
-        assertThat(itemOne, is(expected.items[0]));
+        assertThat(itemOne, is(expected.getItems()[0]));
     }
     /**
      * Тест проверки метода findById.
@@ -29,7 +29,7 @@ public class TrackerTest {
     @Test
     public void whenOneThenThree() {
         Tracker expected = new Tracker();
-        Item itemOne = new Item("one", "desk", 1);
+        Item itemOne = new Item("one", "desk", "1");
         expected.add(itemOne);
         Item res = expected.findById(itemOne.getId());
         assertThat(itemOne, is(res));
@@ -40,8 +40,8 @@ public class TrackerTest {
     @Test
     public void whenOneThenFour() {
         Tracker expected = new Tracker();
-        Item itemOne = new Item("one", "desk", 1);
-        Item itemTwo = new Item("one1", "desk1", 2);
+        Item itemOne = new Item("one", "desk", "1");
+        Item itemTwo = new Item("one1", "desk1", "2");
         expected.add(itemOne);
         expected.add(itemTwo);
         expected.delete(itemTwo);
@@ -54,7 +54,7 @@ public class TrackerTest {
     @Test
     public void whenOneThenFive() {
         Tracker expected = new Tracker();
-        Item itemOne = new Item("one", "desk", 1);
+        Item itemOne = new Item("one", "desk", "1");
         expected.add(itemOne);
         assertThat(itemOne, is(expected.findAll()[0]));
     }
@@ -64,7 +64,7 @@ public class TrackerTest {
     @Test
     public void whenOneThenSix() {
         Tracker expected = new Tracker();
-        Item itemOne = new Item("one", "desk", 1);
+        Item itemOne = new Item("one", "desk", "1");
         expected.add(itemOne);
         Item[] items = new Item[1];
         items[0] = itemOne;
@@ -74,14 +74,14 @@ public class TrackerTest {
      * Тест проверки метода update.
      */
     @Test
-    public void whenOneThenSeven(){
+    public void whenOneThenSeven() {
         Tracker expected = new Tracker();
         Tracker result = new Tracker();
-        Item itemOne = new Item("one", "desk", 1);
+        Item itemOne = new Item("one", "desk", "1");
         expected.add(itemOne);
         itemOne.setName("one1");
         result.add(itemOne);
         expected.update(itemOne);
-        assertThat(itemOne, is(expected.items[0]));
+        assertThat(itemOne, is(expected.getItems()[0]));
     }
 }

@@ -6,27 +6,22 @@ package ru.job4j.Extends;
  * @version 1
  */
 public class Machine {
+    /**
+     * name - имя.
+     */
     private String name;
+    /**
+     * model - модель.
+     */
     private int model;
 
+    /**
+     * Конструктор.
+     * @param name - имя
+     * @param model - модель
+     */
     public Machine(String name, int model) {
         this.name = name;
-        this.model = model;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getModel() {
-        return model;
-    }
-
-    public void setModel(int model) {
         this.model = model;
     }
 }

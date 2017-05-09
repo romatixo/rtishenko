@@ -7,22 +7,21 @@ package ru.job4j.Extends;
  */
 public class Profession {
     /**
-     * name - имя работника
+     * name - имя работника.
      */
     private String name;
     /**
-     * age - количество лет
+     * age - количество лет.
      */
     private int age;
     /**
-     * rang - ранг специальности
+     * rang - ранг специальности.
      */
     private byte rang;
     /**
-     * salary - зарплата
+     * salary - зарплата.
      */
     private int salary;
-
     /**
      * конструктор.
      * @param name - имя
@@ -36,23 +35,20 @@ public class Profession {
         this.rang = rang;
         this.salary = salary;
     }
-
-    /**
+     /**
      * второй конструктор.
      */
-    public Profession () {
+    public Profession() {
     }
-
-    /**
-     * getName - получение имени работника
+     /**
+     * getName - получение имени работника.
      * @return имя
      */
     String getName() {
         return name;
     }
-
     /**
-     * Геттеор age
+     * Геттеор age.
      * @return age
      */
     public int getAge() {
@@ -60,7 +56,7 @@ public class Profession {
     }
 
     /**
-     * Геттер rang
+     * Геттер rang.
      * @return rang
      */
     public byte getRang() {
@@ -68,7 +64,7 @@ public class Profession {
     }
 
     /**
-     * Геттер salary
+     * Геттер salary.
      * @return salary
      */
     public int getSalary() {
