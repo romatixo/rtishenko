@@ -53,11 +53,20 @@ public class StartUI {
      * EXIT - выход.
      */
     private static final int EXIT = 6;
-
+    public static boolean flag = false;
     /**
      * Метод работы с меню.
      */
     public void init() {
+        MenuTracker menuTracker = new MenuTracker(this.input, this.tracker);
+        menuTracker.fillActions();
+
+        while (!this.flag) {
+            menuTracker.show();
+           int key = Integer.valueOf(this.input.ask("Select: "));
+            menuTracker.select(key);
+        }
+        /*
         boolean flag = false;
         while (!flag) {
             viewMenu();
@@ -112,16 +121,18 @@ public class StartUI {
                flag = true;
             }
         }
+        */
     }
+
     /**
      * viwMenu - меню.
      */
-    public void viewMenu() {
+    /*public void viewMenu() {
         String[] menu = new String[] {"0. Add new Item", "1. Show all items", "2. Edit item", "3. Delete item", "4. Find item by Id", "5. Find items by name", "6. Exit Program"};
         for (String part : menu) {
             System.out.println(part);
         }
-    }
+    }*/
      /**
      * main - главный метод.
      * @param args - арг
