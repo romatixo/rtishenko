@@ -29,4 +29,14 @@ public class PaintTest {
         Triangle square = new Triangle();
         assertThat(square.pic(), is("  .  \r\n . . \r\n....."));
     }
+    /**
+     * Тест проверки прорисовки квадрата.
+     */
+    @Test
+    public void whenDrawThenTriangle() {
+        Paint paint = new Paint();
+
+        Triangle square = new Triangle();
+        assertThat(square.pic(), is("  .  \r\n . . \r\n....."));
+    }
 }
