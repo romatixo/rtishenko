@@ -26,7 +26,7 @@ public class StunInputTest {
      * Тест проверки метода delete.
      */
     @Test
-    public void whenUserFindAllItemThenTrackerHasItemWithSameName() {
+    public void whenUserDeleteItemThenTrackerHasNotItemWithThisName() {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"0", "test name", "desc", "1", "0","test name2", "desc2", "2", "3", "2","6"});
         new StartUI(input, tracker).init();
