@@ -37,7 +37,7 @@ public class StartUI {
 
         while (!this.flag) {
             menuTracker.show();
-           int key = Integer.valueOf(this.input.ask("Select: "));
+           int key = input.ask("Select :", ValidateInput.range);
             menuTracker.select(key);
         }
     }
@@ -46,6 +46,6 @@ public class StartUI {
      * @param args - арг
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }

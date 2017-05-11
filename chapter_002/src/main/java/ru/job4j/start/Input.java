@@ -12,4 +12,12 @@ public interface Input {
      * @return - ответ
      */
     String ask(String question);
+
+    /**
+     * ask - метод ввода.
+     * @param question - вопрос
+     * @param range - range значений
+     * @return - ответ
+     */
+    int ask(String question, int[] range);
 }
