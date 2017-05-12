@@ -62,6 +62,16 @@ public class StunInputTest {
         new StartUI(input, tracker).init();
         assertThat(tracker.findByName("test name")[0].getName(), is("test name"));
     }
+    /**
+     * Тест проверки метода findByName.
+     */
+    @Test
+    public void whenUserEnterThenGoException() {
+        Tracker tracker = new Tracker();
+        Input input = new StubInput(new String[]{"-1"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.findByName("test name")[0].getName(), is("test name"));
+    }
 
 }
 
