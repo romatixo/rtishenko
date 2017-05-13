@@ -5,6 +5,10 @@ import ru.job4j.models.Item;
 
 public abstract class BaseAction implements UserAction {
     /**
+     * Позиция.
+     */
+    private int position = 0;
+    /**
      * name - имя.
      */
     public String name;
@@ -25,7 +29,9 @@ public abstract class BaseAction implements UserAction {
         /**
          * key - вывод ключа операции.
          */
-        public abstract int key();
+        public int key() {
+            return position++;
+        }
         /**
          * execute - выполнение операции.
          * @param input   - ввод

@@ -11,14 +11,7 @@ class Update extends BaseAction {
     public Update(String name, int key) {
         super(name,2);
     }
-    /**
-     * key - вывод ключа операции.
-     * @return 2
-     */
-    @Override
-    public int key() {
-        return 2;
-    }
+
     /**
      * execute - выполнение операции.
      * @param input   - ввод
@@ -109,14 +102,6 @@ public class MenuTracker {
             super(name, key);
         }
         /**
-         * key - вывод ключа операции.
-         * @return 0
-         */
-        @Override
-        public int key() {
-            return 0;
-        }
-        /**
          * execute - выполнение операции.
          * @param input   - ввод
          * @param tracker - трэкер
@@ -173,15 +158,6 @@ public class MenuTracker {
         public Delete(String name, int key) {
             super(name, key);
         }
-
-        /**
-         * key - вывод ключа операции.
-         * @return 3
-         */
-        @Override
-        public int key() {
-            return 3;
-        }
         /**
          * execute - выполнение операции.
          * @param input   - ввод
@@ -206,15 +182,6 @@ public class MenuTracker {
         public FindById(String name, int key) {
             super(name, key);
         }
-
-        /**
-         * key - вывод ключа операции.
-         * @return 4
-         */
-        @Override
-        public int key() {
-            return 4;
-        }
         /**
          * execute - выполнение операции.
          * @param input   - ввод
@@ -238,15 +205,6 @@ public class MenuTracker {
 
         public FindByName(String name, int key) {
             super(name, key);
-        }
-
-        /**
-         * key - вывод ключа операции.
-         * @return 5
-         */
-        @Override
-        public int key() {
-            return 5;
         }
         /**
          * execute - выполнение операции.
@@ -273,15 +231,6 @@ public class MenuTracker {
 
         public Exit(String name, int key) {
             super(name, key);
-        }
-
-        /**
-         * key - вывод ключа операции.
-         * @return 6
-         */
-        @Override
-        public int key() {
-            return 6;
         }
         /**
          * execute - выполнение операции.
