@@ -7,7 +7,10 @@ import ru.job4j.models.Item;
  * @since 11.05.2017
  * @version 1
  */
-class Update implements UserAction {
+class Update extends BaseAction {
+    public Update(String name, int key) {
+        super(name,2);
+    }
     /**
      * key - вывод ключа операции.
      * @return 2
@@ -34,14 +37,6 @@ class Update implements UserAction {
         }
     }
 
-    /**
-     * info - информация.
-     * @return - инфо операции
-     */
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), "Edit item.");
-    }
 }
 /**
  * MenuTracker класс меню программы.
@@ -77,13 +72,13 @@ public class MenuTracker {
      * Занесение в массив операций.
      */
     public void fillActions() {
-        this.actions[0] = new AddItem();
-        this.actions[1] = new FindAll();
-        this.actions[2] = new Update();
-        this.actions[3] = new Delete();
-        this.actions[4] = new FindById();
-        this.actions[5] = new FindByName();
-        this.actions[6] = new Exit();
+        this.actions[0] = new AddItem("Add Item", 0);
+        this.actions[1] = new FindAll("Find All Items", 1);
+        this.actions[2] = new Update("Update Item", 2);
+        this.actions[3] = new Delete("Delete item", 3);
+        this.actions[4] = new FindById("Find item by id", 4);
+        this.actions[5] = new FindByName("Find item by name", 5);
+        this.actions[6] = new Exit("Exit programm", 6);
 
     }
 
@@ -109,8 +104,10 @@ public class MenuTracker {
     /**
      * Класс операции add.
      */
-    private class AddItem implements UserAction {
-
+    private class AddItem extends BaseAction {
+        public AddItem(String name, int key) {
+            super(name, key);
+        }
         /**
          * key - вывод ключа операции.
          * @return 0
@@ -131,20 +128,15 @@ public class MenuTracker {
             String id = input.ask("Please, enter the task's id.");
             tracker.add(new Item(name, desc, id));
         }
-        /**
-         * info - информация.
-         * @return - инфо операции
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Add the new Item.");
-        }
     }
     /**
      * Класс операции findAll.
      */
-    private static class FindAll implements UserAction {
+    private static class FindAll extends BaseAction {
 
+        public FindAll(String name, int key) {
+            super(name, key);
+        }
         /**
          * key - вывод ключа операции.
          * @return 1
@@ -172,19 +164,15 @@ public class MenuTracker {
             }
 
         }
-        /**
-         * info - информация.
-         * @return - инфо операции
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Show all Items.");
-        }
     }
     /**
      * Класс операции delete.
      */
-    private class Delete implements UserAction {
+    private class Delete extends BaseAction {
+
+        public Delete(String name, int key) {
+            super(name, key);
+        }
 
         /**
          * key - вывод ключа операции.
@@ -209,19 +197,15 @@ public class MenuTracker {
                 System.out.println("Такой записи не существует");
             }
         }
-        /**
-         * info - информация.
-         * @return - инфо операции
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Delete item.");
-        }
     }
     /**
      * Класс операции findById.
      */
-    private class FindById implements UserAction {
+    private class FindById extends BaseAction {
+
+        public FindById(String name, int key) {
+            super(name, key);
+        }
 
         /**
          * key - вывод ключа операции.
@@ -246,19 +230,15 @@ public class MenuTracker {
                 System.out.println("Такой записи не существует");
             }
         }
-        /**
-         * info - информация.
-         * @return - инфо операции
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Find item by Id.");
-        }
     }
     /**
      * Класс операции findByName.
      */
-    private class FindByName implements UserAction {
+    private class FindByName extends BaseAction {
+
+        public FindByName(String name, int key) {
+            super(name, key);
+        }
 
         /**
          * key - вывод ключа операции.
@@ -285,19 +265,15 @@ public class MenuTracker {
                 System.out.println("Такой записи не существует");
             }
         }
-        /**
-         * info - информация.
-         * @return - инфо операции
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Find item by Name.");
-        }
     }
     /**
      * Класс операции exit.
      */
-    private class Exit implements UserAction {
+    private class Exit extends BaseAction {
+
+        public Exit(String name, int key) {
+            super(name, key);
+        }
 
         /**
          * key - вывод ключа операции.
@@ -316,13 +292,6 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             StartUI.flag = true;
         }
-        /**
-         * info - информация.
-         * @return - инфо операции
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Exit Program.");
-        }
+
     }
 }
