@@ -31,7 +31,7 @@ public class Board {
             if (figure != null &&figure.position.getXcoordinate() == source.getXcoordinate() && figure.position.getYcoordinate() == source.getYcoordinate()) {
                 flag = true;
                 if (dist.getXcoordinate() >= 0 && dist.getXcoordinate() <= 7 && dist.getYcoordinate() >=0 && dist.getYcoordinate() <= 7 && source.getXcoordinate() >= 0 && source.getXcoordinate() <= 7 && source.getYcoordinate() >=0 && source.getYcoordinate() <= 7) {
-                    Cell[] figureway = figure.way(dist);
+                    Cell[] figureway = figure.formArray(new Cell[8], source, dist);
                     for (Cell cell : figureway) {
                         for (Figure stayfigure : figures) {
                             if (stayfigure != null && stayfigure.position.getXcoordinate() != cell.getXcoordinate() && stayfigure.position.getYcoordinate() != cell.getYcoordinate()) {
