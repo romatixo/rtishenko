@@ -20,7 +20,7 @@ public class Cell {
      * @param xcoordinate - x координата.
      * @param ycoordinate - y координата.
      */
-    public Cell(int xcoordinate, int ycoordinate) {
+    public Cell(int ycoordinate, int xcoordinate) {
         this.xcoordinate = xcoordinate;
         this.ycoordinate = ycoordinate;
     }
