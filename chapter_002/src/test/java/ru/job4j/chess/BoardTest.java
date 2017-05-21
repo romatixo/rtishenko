@@ -6,8 +6,8 @@ import ru.job4j.сhess.FigureNotFoundException;
 import ru.job4j.сhess.OutPerBoardException;
 import ru.job4j.сhess.figure.Elephant;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 public class BoardTest {
     /**
