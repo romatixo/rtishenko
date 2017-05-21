@@ -19,19 +19,9 @@ public class Knight extends Figure {
 
     @Override
     public Cell[] way(Cell dist) throws ImpossibleMoveException {
-        Cell[] possibleway = new Cell[3];
+        Cell[] possibleway = new Cell[1];
         if (dist.getXcoordinate() != position.getXcoordinate() && Math.abs(dist.getXcoordinate() - position.getXcoordinate()) == 3 && Math.abs(dist.getYcoordinate() - position.getYcoordinate()) == 2) {
-            for (int i = 0; i < 3; i++) {
-                if (dist.getXcoordinate() < position.getXcoordinate() && dist.getYcoordinate() < position.getYcoordinate()) {
-                    possibleway[i] = new Cell(position.getYcoordinate() - i - 1, position.getXcoordinate() - i);
-                } else if (dist.getXcoordinate() > position.getXcoordinate() && dist.getYcoordinate() < position.getYcoordinate()) {
-                    possibleway[i] = new Cell(position.getYcoordinate() - i - 1, position.getXcoordinate() + i);
-                } else if (dist.getXcoordinate() < position.getXcoordinate() && dist.getYcoordinate() > position.getYcoordinate()) {
-                    possibleway[i] = new Cell(position.getYcoordinate() + i + 1, position.getXcoordinate() - i);
-                } else if (dist.getXcoordinate() > position.getXcoordinate() && dist.getYcoordinate() > position.getYcoordinate()) {
-                    possibleway[i] = new Cell(position.getYcoordinate() + i + 1, position.getXcoordinate() + i);
-                }
-            }
+            possibleway[0] = new Cell(dist.getXcoordinate(), dist.getYcoordinate());
         } else {
             new ImpossibleMoveException("The move don't available");
         }
