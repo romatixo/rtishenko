@@ -35,15 +35,21 @@ public class ConvertMass {
      * @return массив сформированный из листа.
      */
     public int[][] toArray (List<Integer> list, int rows) {
-        int[][] array = new int[rows][rows];
+        int width = 0;
+        
+        
+        
         if (list.size() % rows != 0) {
-            while (list.size() % rows != 0) {
-                list.add(new Integer(0));
-            }
-        }
+                width = list.size();
+                while (width % rows != 0) {
+                    width ++;
+                }
+        } else width = (int)list.size()/rows; 
+            
+        int[][] array = new int[rows][width];
         Iterator<Integer> iterator = list.iterator();
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < rows; j++) {
+            for (int j = 0; j < rows && iterator.hasNext(); j++) {
                 array[i][j] = iterator.next();
             }
         }

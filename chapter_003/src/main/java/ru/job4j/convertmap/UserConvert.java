@@ -43,7 +43,6 @@ public class UserConvert {
      */
     public HashMap<Integer, User> process(List<User> list) {
         HashMap<Integer, User> map = new HashMap<>();
-        Iterator<User> iterator = list.iterator();
         for (User user : list) {
             map.put(user.getId(), user);
         }
