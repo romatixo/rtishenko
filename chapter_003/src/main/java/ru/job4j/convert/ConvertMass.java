@@ -14,8 +14,10 @@ import static java.lang.Double.parseDouble;
  * @version 1
  */
 public class ConvertMass {
-    /*
-    * toList - метод добавления матрицы в лист.
+
+    /**
+     * @param array - входной массив.
+     * @return - лист
      */
     public List<Integer> toList (int[][] array) {
         ArrayList<Integer> list = new ArrayList<>();
@@ -26,6 +28,12 @@ public class ConvertMass {
         }
         return list;
     }
+
+    /**
+     * @param list - входной лист.
+     * @param rows - кол-во строк.
+     * @return массив сформированный из листа.
+     */
     public int[][] toArray (List<Integer> list, int rows) {
         int[][] array = new int[rows][rows];
         if (list.size() % rows != 0) {
@@ -40,5 +48,20 @@ public class ConvertMass {
             }
         }
         return array;
+    }
+
+    /**
+     * @param list - лист массивов.
+     * @return лист включающий в себя все эл-ты первого листа.
+     */
+    public List<Integer> convert (List<int[]> list) {
+        List<Integer> publiclist = new ArrayList<>();
+        Iterator<int[]> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            for (int value : iterator.next()) {
+                publiclist.add(value);
+            }
+        }
+        return publiclist;
     }
 }
