@@ -20,7 +20,7 @@ public class StunInputTest {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"0", "test name", "desc", "1", "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll()[0].getName(), is("test name"));
+        assertThat(tracker.findAll().get(0).getName(), is("test name"));
     }
     /**
      * Тест проверки метода delete.
@@ -30,7 +30,7 @@ public class StunInputTest {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"0", "test name", "desc", "1", "0","test name2", "desc2", "2", "3", "2","6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll().length, is(1));
+        assertThat(tracker.findAll().size(), is(1));
     }
     /**
      * Тест проверки метода Update.
@@ -40,7 +40,7 @@ public class StunInputTest {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"0", "test name", "desc", "1", "2", "1", "test nameUp", "descNew", "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll()[0].getName(), is("test nameUp"));
+        assertThat(tracker.findAll().get(0).getName(), is("test nameUp"));
     }
     /**
      * Тест проверки метода findById
@@ -60,7 +60,7 @@ public class StunInputTest {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"0", "test name", "desc", "1",  "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findByName("test name")[0].getName(), is("test name"));
+        assertThat(tracker.findByName("test name").get(0).getName(), is("test name"));
     }
     /**
      * Тест проверки метода findByName.
@@ -70,7 +70,7 @@ public class StunInputTest {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"-1"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findByName("test name")[0].getName(), is("test name"));
+        assertThat(tracker.findByName("test name").get(0).getName(), is("test name"));
     }
 
 }

@@ -21,7 +21,7 @@ public class TrackerTest {
         Item itemOne = new Item("one", "desk", "1");
         expected.add(itemOne);
 
-        assertThat(itemOne, is(expected.getItems()[0]));
+        assertThat(itemOne, is(expected.getItems().get(0)));
     }
     /**
      * Тест проверки метода findById.
@@ -56,7 +56,7 @@ public class TrackerTest {
         Tracker expected = new Tracker();
         Item itemOne = new Item("one", "desk", "1");
         expected.add(itemOne);
-        assertThat(itemOne, is(expected.findAll()[0]));
+        assertThat(itemOne, is(expected.findAll().get(0)));
     }
     /**
      * Тест проверки метода findByName.
@@ -82,6 +82,6 @@ public class TrackerTest {
         itemOne.setName("one1");
         result.add(itemOne);
         expected.update(itemOne);
-        assertThat(itemOne, is(expected.getItems()[0]));
+        assertThat(itemOne, is(expected.getItems().get(0)));
     }
 }

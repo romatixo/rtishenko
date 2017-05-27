@@ -1,6 +1,9 @@
 package ru.job4j.start;
 
 import ru.job4j.models.Item;
+
+import java.util.ArrayList;
+
 /**
  * Update класс операции edit.
  * @author romatihsenko
@@ -111,7 +114,8 @@ public class MenuTracker {
             String name = input.ask("Please, enter the task's name.");
             String desc = input.ask("Please, enter the task's desk.");
             String id = input.ask("Please, enter the task's id.");
-            tracker.add(new Item(name, desc, id));
+            Item item = new Item(name, desc, id);
+            tracker.add(item);
         }
     }
     /**
@@ -138,7 +142,7 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             int i = 1;
-            if (tracker.findAll().length != 0) {
+            if (tracker.findAll().size() != 0) {
                 for (Item item1 : tracker.findAll()) {
                 System.out.println("  Заявка № " + i);
                 System.out.println(item1.toString());
@@ -214,10 +218,12 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             String name = input.ask("Введите name записи , которую вы хотите найти");
-            Item[] items = tracker.findByName(name);
+           ArrayList<Item> items = tracker.findByName(name);
             if (items != null) {
-                for (int i = 0; i < items.length; i++) {
-                    System.out.println("Запись номер : " + (i + 1) + "\r\n" + items[i].toString());
+                int i = 0;
+                for (Item item : items) {
+                    System.out.println("Запись номер : " + (i + 1) + "\r\n" + item.toString());
+                    i++;
                 }
             }  else {
                 System.out.println("Такой записи не существует");

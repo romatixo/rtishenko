@@ -15,10 +15,6 @@ public class Brackets {
         char[] st = str.toCharArray();
         int count = 0;
         for (int i = 0; i < st.length; i++) {
-            if (st[0]==')') {
-                count++;
-                break;
-            }
             if (st[i] == ')' && count == 0) {
                 count--;
                 break;
@@ -36,7 +32,7 @@ public class Brackets {
 
     public static void main(String[] args) {
         Brackets brackets = new Brackets();
-        System.out.println(brackets.find("(())())"));
+        System.out.println(brackets.find("))(("));
 
     }
 }
