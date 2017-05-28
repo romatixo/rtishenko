@@ -40,11 +40,12 @@ public class ConvertMass {
         
         
         if (list.size() % rows != 0) {
-                width = list.size();
-                while (width % rows != 0) {
-                    width ++;
-                }
-        } else width = (int)list.size()/rows; 
+            width = list.size();
+            while (width % rows != 0) {
+                width++;
+            }
+        }
+        width = (int)list.size()/rows;
             
         int[][] array = new int[rows][width];
         Iterator<Integer> iterator = list.iterator();

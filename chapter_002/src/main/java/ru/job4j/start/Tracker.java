@@ -18,15 +18,12 @@ public class Tracker {
 
         Tracker tracker = (Tracker) o;
 
-        if (position != tracker.position) return false;
         return items != null ? items.equals(tracker.items) : tracker.items == null;
     }
 
     @Override
     public int hashCode() {
-        int result = items != null ? items.hashCode() : 0;
-        result = 31 * result + position;
-        return result;
+        return items != null ? items.hashCode() : 0;
     }
 
     /**
@@ -41,18 +38,6 @@ public class Tracker {
      */
     private ArrayList<Item> items = new ArrayList<>();
     /**
-     * Геттер.
-     * @return position
-     */
-    public int getPosition() {
-        return position;
-    }
-
-    /**
-     * position - позиция заявки.
-     */
-    private int position = 0;
-    /**
      * RN - уникальный id.
      */
     private static final Random RN = new Random();
@@ -63,7 +48,6 @@ public class Tracker {
     void add(Item item) {
       item.setCreate(System.currentTimeMillis());
       this.items.add(item);
-        position++;
     }
     /**
      * findById - метод поиска записи по id.
@@ -88,7 +72,6 @@ public class Tracker {
         for (Item value : this.items) {
             if (value.equals(item)) {
                 this.items.remove(value);
-                position -= 1;
               break;
             }
         }
@@ -106,7 +89,6 @@ public class Tracker {
      * @return - записи
      */
     ArrayList<Item> findByName(String key) {
-        int f = 0;
         ArrayList<Item> result = new ArrayList<>();
         for (Item item : items) {
             if (item.getName().equals(key)) {
