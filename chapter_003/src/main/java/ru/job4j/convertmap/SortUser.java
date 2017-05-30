@@ -43,13 +43,33 @@ public class SortUser {
 
         @Override
         public int hashCode() {
-            return age;
+            int result = age != null ? age.hashCode() : 0;
+            result = 31 * result + (name != null ? name.hashCode() : 0);
+            return result;
         }
 
         @Override
         public int compareTo(User o) {
             return this.age.compareTo(o.age);
         }
+    }
+    public List<User> sortHash (List<User> list) {
+        list.sort(new Comparator<User>() {
+            @Override
+            public int compare(User o1, User o2) {
+                return new Integer(o1.hashCode()).compareTo(new Integer(o2.hashCode()));
+            }
+        });
+        return list;
+    }
+    public List<User> sortLength (List<User> list) {
+        list.sort(new Comparator<User>() {
+            @Override
+            public int compare(User o1, User o2) {
+                return o1.name.length() < o2.name.length() ? o1.name.length() :  o2.name.length();
+            }
+        });
+        return list;
     }
 
     /**
@@ -86,8 +106,9 @@ public class SortUser {
         list.add(user3);
         list.add(user4);
         Set<User> set = sort(list);
+        list = sortLength(list);
         for (User user :
-                set) {
+                list) {
             System.out.println(user);
         };
     }
