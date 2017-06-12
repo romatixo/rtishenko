@@ -58,7 +58,7 @@ public class SortUser {
 
 
     public List<User> sortHash (List<User> list) {
-        list.sort((o1,o2)->Integer.compare(o1.hashCode(),o2.hashCode()));
+        list.sort(Comparator.comparingInt(User::hashCode));
         return list;
     }
     public List<User> sortLength (List<User> list) {
