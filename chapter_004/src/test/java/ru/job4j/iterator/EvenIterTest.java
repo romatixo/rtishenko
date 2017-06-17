@@ -18,7 +18,7 @@ public class EvenIterTest {
 
 
     public void next() {
-    EvenIter evenIter = new EvenIter(new int[]{1,3,2,7,6,9,8});
+    EvenIter evenIter = new EvenIter(new int[]{1,2,3,4,5,6,7,7});
     int temp = -1;
     while (evenIter.hasNext()) {
         System.out.println(evenIter.next());

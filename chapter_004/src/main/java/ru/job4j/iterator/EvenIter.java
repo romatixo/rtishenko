@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 public class EvenIter implements Iterator{
     public final int maze[];
     public int index = 0;
+    public int temp = -1;
 
     public EvenIter(int[] maze) {
         this.maze = maze;
@@ -16,23 +17,28 @@ public class EvenIter implements Iterator{
 
     @Override
     public boolean hasNext() {
-        return maze.length > index;
+
+        return even() == -1 ? false : true;
     }
 
     @Override
     public Integer next() {
-        int temp = 0;
-        int count = 0;
-        while (index < maze.length) {
-            if (maze[index] % 2 == 0) {
-                temp = maze[index++];
-                break;
-            } else {
-                count++;
-            }
-            index++;
+        index = even();
+        if (index == -1) {
+            throw new NoSuchElementException("All element not even");
+        } else {
+            return maze[index++];
+                }
         }
-        if (count == maze.length) new NoSuchElementException("All element not even");
-        return  temp;
+
+    public int even() {
+        int res = -1;
+        for (int i = index; i < maze.length; i++) {
+            if (maze[i] % 2 == 0) {
+                res = i;
+                break;
+            }
+        }
+        return res;
     }
 }
