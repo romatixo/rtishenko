@@ -7,28 +7,28 @@ import java.util.Iterator;
  */
 public class MatrIter implements Iterator {
     public final int maze[][];
-    public int indexI = 0;
-    public int indexY = 0;
+    public int column = 0;
+    public int row = 0;
     public MatrIter(int[][] maze) {
         this.maze = maze;
     }
 
     @Override
     public boolean hasNext() {
-        return maze.length > indexI && maze[maze.length - 1].length > indexY;
+        return maze.length > column && maze[maze.length - 1].length > row;
     }
 
     @Override
     public Integer next() {
         int temp = 0;
-        if (indexI < maze.length) {
-            if (indexY < maze[indexI].length) {
-                temp = maze[indexI][indexY];
-                indexY++;
+        if (column < maze.length) {
+            if (row < maze[column].length) {
+                temp = maze[column][row];
+                row++;
             } else {
-                indexI++;
-                indexY = 0;
-                temp = maze[indexI][indexY++];
+                column++;
+                row = 0;
+                temp = maze[column][row++];
             }
         }
         return temp;

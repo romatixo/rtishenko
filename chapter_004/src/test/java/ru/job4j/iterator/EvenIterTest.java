@@ -13,19 +13,10 @@ import static org.junit.Assert.*;
 public class EvenIterTest {
     @Test
     public void hasNext() throws Exception {
-
-    }
-
-
-    public void next() {
-    EvenIter evenIter = new EvenIter(new int[]{1,2,3,4,5,6,7,7});
-    int temp = -1;
-    while (evenIter.hasNext()) {
-        System.out.println(evenIter.next());
-    }
-    }
-
-    public static void main(String[] args) {
-        new EvenIterTest().next();
+        EvenIter evenIter = new EvenIter(new int[]{1,2,3,4,5,6,7,7});
+        int temp = -1;
+        temp = evenIter.next();
+        temp = evenIter.next();
+        assertThat(4, is(temp));
     }
 }
