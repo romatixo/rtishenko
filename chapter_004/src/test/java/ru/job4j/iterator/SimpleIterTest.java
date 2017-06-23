@@ -14,7 +14,9 @@ public class SimpleIterTest {
         SimpleIter evenIter = new SimpleIter(new int[]{1,2,3,4,5,6,7,7});
         int temp = -1;
         temp = (int) evenIter.next();
-
-        assertThat(1, is(temp));
+        temp = (int) evenIter.next();
+        temp = (int) evenIter.next();
+        temp = (int) evenIter.next();
+        assertThat(5, is(temp));
     }
 }

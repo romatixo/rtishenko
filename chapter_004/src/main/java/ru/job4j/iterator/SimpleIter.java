@@ -9,18 +9,36 @@ import java.util.NoSuchElementException;
  * @version 1
  */
 public class SimpleIter implements Iterator {
-    public final int maze[];
+    /**
+     * maze - входящий массив.
+     */
+    public final int[] maze;
+    /**
+     * index - счётчик.
+     */
     public int index = 0;
 
+    /**
+     * Конструктор.
+     * @param maze - входящий массив.
+     */
     public SimpleIter(int[] maze) {
         this.maze = maze;
     }
 
+    /**
+     * проверка на существование сл эл-тов
+     * @return логическое значение.
+     */
     @Override
     public boolean hasNext() {
         return  find() == -1 ? false : true;
     }
 
+    /**
+     * Метод возвращающий текущий подходящий эл-т массива.
+     * @return эл-т массива.
+     */
     @Override
     public Object next() {
         index = find();
@@ -31,6 +49,10 @@ public class SimpleIter implements Iterator {
         }
     }
 
+    /**
+     * метод поиска простого числа.
+     * @return индекс эл-та.
+     */
     public int find() {
         int res = -1;
         for (int i = index; i < maze.length; i++) {
@@ -42,6 +64,12 @@ public class SimpleIter implements Iterator {
         }
         return  res;
     }
+
+    /**
+     * Метод проверки числа на простоту.
+     * @param number входящее число.
+     * @return логическое значение.
+     */
     public boolean isPrime(int number) {
         boolean f = false;
         int count = 1;
