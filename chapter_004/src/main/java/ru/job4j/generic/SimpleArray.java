@@ -44,17 +44,7 @@ public class SimpleArray <T> {
      * @param index - position cell.
      */
     public void delete(int index) {
-        if (index == this.arr.length - 1) {
-            this.arr[index] = null;
-            possition--;
-        } else {
-            while(index + 1 != possition) {
-                Object temp = arr[index];
-                arr[index] = arr[index + 1];
-                arr[index + 1] = temp;
-                index++;
-            }
-            possition--;
-        }
+        System.arraycopy(this.arr, index + 1,this.arr, index,this.arr.length - possition);
+        possition--;
     }
 }

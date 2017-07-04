@@ -40,8 +40,9 @@ public class SimpleArrayTest {
         list.add(1.3);
         list.add(1.4);
         list.delete(0);
-        assertThat(1.2, is(list.get(0)));
-        assertThat(3,is(list.possition));
+        list.delete(0);
+        assertThat(1.3, is(list.get(0)));
+        assertThat(2,is(list.possition));
     }
 
 }
