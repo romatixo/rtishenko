@@ -5,12 +5,12 @@ package ru.job4j.generic;
  * @since 2.07.2017
  * @version 1
  */
-public class SimpleArray <T> {
+public class SimpleArray <T extends Base> {
     int possition = 0;
-    Object[] arr;
+    T[] arr;
 
-    public SimpleArray(int size) {
-        this.arr = new Object[size];
+    public SimpleArray(T[] mass) {
+        this.arr = mass;
     }
 
     /**
@@ -27,24 +27,37 @@ public class SimpleArray <T> {
      * @return value of array.
      */
     public T get(int index) {
-        return (T)this.arr[index];
+        return this.arr[index];
     }
 
     /**
      * update - method updating data of array el-t.
-     * @param index - position cell.
+     * @param id  - id.
      * @param value - value for update.
      */
-    public void update(int index, Object value) {
-        this.arr[index] = value;
+    public void update(String id, T value) {
+        for (T temp : arr) {
+            if (temp.getId().equals(value.getId())) {
+                temp.setId(id);
+                break;
+            }
+        }
     }
 
     /**
      * delete - method deleting cell by index.
-     * @param index - position cell.
+     * @param id - id.
      */
-    public void delete(int index) {
-        System.arraycopy(this.arr, index + 1,this.arr, index,this.arr.length - possition);
+    public void delete(String id) {
+        int tempindex = 0;
+        for (T temp : arr) {
+        tempindex++;
+            if (temp.getId().equals(id)) {
+                System.arraycopy(this.arr, tempindex + 1,this.arr, tempindex,this.arr.length - possition);
+                break;
+            }
+        }
+
         possition--;
     }
 }
