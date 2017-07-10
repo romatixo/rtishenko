@@ -8,7 +8,7 @@ import java.util.Iterator;
  * @since 10.07.2017
  * @version 1
  */
-public class SimpleLinkedList<E> implements Iterable<E> {
+public class SimpleLinkedList<E> implements SimpleList<E> {
     /**
      * container - container for el-ts.
      */
@@ -53,7 +53,7 @@ public class SimpleLinkedList<E> implements Iterable<E> {
      */
     @Override
     public Iterator<E> iterator() {
-        return new IteratorList<>();
+        return new IteratorList<E>();
     }
 
 
