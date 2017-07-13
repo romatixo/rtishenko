@@ -3,21 +3,25 @@ package ru.job4j.list;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
-
 /**
- * Created by Рома on 10.07.2017.
+ * ContainerOnTheList класс реализации LinkedList на связанном списке.
+ * @author romatihsenko
+ * @since 13.07.2017
+ * @version 1
  */
 public class ContainerOnTheList<E> implements SimpleList<E> {
+    /**
+     * size - size.
+     */
     transient int size = 0;
     /**
      * Pointer to first node.
      */
-    Node<E> first;
+    private Node<E> first;
     /**
      * Pointer to last node.
      */
-    Node<E> last;
-
+    private Node<E> last;
     /**
      * add - method adding el-t.
      * @param value - value
@@ -33,11 +37,10 @@ public class ContainerOnTheList<E> implements SimpleList<E> {
             l.next = newNode;
         size++;
     }
-
     /**
      * get - method getting el-t.
      * @param index - index.
-     * @return
+     * @return item
      */
     @Override
     public E get(int index) {
@@ -52,7 +55,6 @@ public class ContainerOnTheList<E> implements SimpleList<E> {
         }
         return value.item;
     }
-
     /**
      * iterator - method for adding iterator for list.
      * @return iterator.
@@ -61,16 +63,31 @@ public class ContainerOnTheList<E> implements SimpleList<E> {
     public Iterator<E> iterator() {
         return new ContIterator<E>();
     }
-
+    /*
+     * ContIterator - класс итератора для контейнера.
+     */
     class ContIterator<E> implements Iterator<E> {
         private int index = 0;
-        private Node<E> lastReturned ;
+        /**
+         * lastReturned - last returned value.
+         */
+        private Node<E> lastReturned;
+        /**
+         * nextReturned - next returned value.
+         */
         private Node<E> nextReturned;
+        /**
+         * hasNext - method for check next el-t.
+         * @return boolean
+         */
         @Override
         public boolean hasNext() {
             return index < size;
         }
-
+        /**
+         * next - method for return el-t and move pointer.
+         * @return - el-t.
+         */
         @Override
         public E next() {
             Node<E> result = new Node<E>(null, null, null);
@@ -89,10 +106,18 @@ public class ContainerOnTheList<E> implements SimpleList<E> {
     }
 
     private static class Node<E> {
+        /**
+         * item - item.
+         */
         E item;
+        /**
+         * next - pointer next el-t's.
+         */
         Node<E> next;
+        /**
+         * prev - pointer previous el-t's.
+         */
         Node<E> prev;
-
         public Node( Node<E> prev,E item, Node<E> next) {
             this.item = item;
             this.next = next;
