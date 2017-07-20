@@ -1,7 +1,6 @@
 package ru.job4j.list;
 
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 /**
  * ContainerOnTheList класс реализации LinkedList на связанном списке.
@@ -105,23 +104,24 @@ public class ContainerOnTheList<E> implements SimpleList<E> {
         }
     }
 
-    private static class Node<E> {
-        /**
-         * item - item.
-         */
-        E item;
-        /**
-         * next - pointer next el-t's.
-         */
-        Node<E> next;
-        /**
-         * prev - pointer previous el-t's.
-         */
-        Node<E> prev;
-        public Node( Node<E> prev,E item, Node<E> next) {
-            this.item = item;
-            this.next = next;
-            this.prev = prev;
-        }
+
+}
+class Node<E> {
+    /**
+     * item - item.
+     */
+    E item;
+    /**
+     * next - pointer next el-t's.
+     */
+    Node<E> next;
+    /**
+     * prev - pointer previous el-t's.
+     */
+    Node<E> prev;
+    public Node( Node<E> prev,E item, Node<E> next) {
+        this.item = item;
+        this.next = next;
+        this.prev = prev;
     }
 }
