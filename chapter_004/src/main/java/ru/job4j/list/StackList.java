@@ -66,7 +66,7 @@ public class StackList<E> implements Iterable<E> {
     }
 
     /**
-     * StackIterator - iterator's class.
+     * StackIterator - iterator for StackList.
      * @param <E> - value
      */
     public class StackIterator<E> implements Iterator<E> {
