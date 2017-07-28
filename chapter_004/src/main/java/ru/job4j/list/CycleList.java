@@ -19,12 +19,15 @@ public class CycleList<T> {
      */
     boolean hasCycle(NodeList<T> first) {
         boolean result = false;
-        NodeList<T> current = first.next;
-        NodeList<T> spot = first;
-        while (current.next != null && result != true) {
-            current = current.next;
-            if (current == spot) {
-                result = true;
+        if (first != null) {
+            NodeList<T> current = first.next;
+            NodeList<T> spot = current.next;
+            while (current.next != null && spot.next != null && result != true) {
+                current = current.next;
+                spot = spot.next.next;
+                if (current == spot) {
+                    result = true;
+                }
             }
         }
         return result;
